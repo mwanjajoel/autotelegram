@@ -54,6 +54,7 @@ We shall also need the time package so as to tell the program to sleep for 10 se
 
 ```python
 import asyncio
+import time
 ```
 
 Our echo bot will get updates from the telegram API using the `get_updates` method of the `Context` class in Autotelegram since it's a wrapper with a Pythonic style to it <br />
@@ -66,7 +67,7 @@ Our focus for now is using the `getUpdates` method since we do not have a dedica
 
 📌 Step 3: Add the `TOKEN` received from the [BotFather](https://telegram.me/BotFather)
 
-Telegram also provides us a url to our bot so that we can receive and send updates to it. The url is in the form of https://api.telegram.org/bot`<TOKEN>`/. TOKEN is the token string we've received from BotFather about the address of our bot. There is no space between bot and the Token. You don't have to worry about this as Autotelegram manages the URL for you. All you need to do is provide the token to the `Context`.
+Telegram also provides us a url to our bot so that we can receive and send updates to it. The url is in the form of `https://api.telegram.org/bot<TOKEN>/`. TOKEN is the token string we've received from BotFather about the address of our bot. There is no space between bot and the Token. You don't have to worry about this as Autotelegram manages the URL for you. All you need to do is provide the token to the `Context`.
 
 ```python
 TOKEN = "insert your bot token"
