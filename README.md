@@ -67,7 +67,7 @@ Our focus for now is using the `getUpdates` method since we do not have a dedica
 
 📌 Step 3: Add the `TOKEN` received from the [BotFather](https://telegram.me/BotFather)
 
-Telegram also provides us a url to our bot so that we can receive and send updates to it. The url is in the form of `https://api.telegram.org/bot<TOKEN>/`. TOKEN is the token string we've received from BotFather about the address of our bot. There is no space between bot and the Token. You don't have to worry about this as Autotelegram manages the URL for you. All you need to do is provide the token to the `Context`.
+Telegram also provides us a url to our bot so that we can receive and send updates to it. The url is in the form of `https://api.telegram.org/bot<TOKEN>/`. <br /> TOKEN is the token string we've received from BotFather about the address of our bot. There is no space between bot and the Token. You don't have to worry about this as Autotelegram manages the URL for you. All you need to do is provide the token to the `Context`.
 
 ```python
 TOKEN = "insert your bot token"
@@ -138,6 +138,9 @@ python echo_bot.py
 - Autotelegram then immediately starts an infinte loop to run our program recuringly. We await on the async `get_updates` method of the bot context to receive updates. <br />
 - Telegram provides us updates inform of a JSON Object. To make the response easier to interact with, Autotelegram parses the JSON into a tree of objects representing the different Telegram objects. (Telegram represents every element of the application such as message, sticker, voicenote, document, picture, url link and so many other elements as Telegram objects.)  <br />
 - In our program, we're accessing the message object and reading its chat and text values. The Chat object represents the chat from which the message came from, and it has an `id` parameter which uniquely identifies this chat. The chat could be another user or group or channel.<br />
-- After getting the `text` and `i`d of the chat we got the message from, we use the `send_message` method on the bot to send back a message to chat. we specify the `chat_id` to send the text to and `text` to send. <br />
+- After getting the `text` and `id` of the chat we got the message from, we use the `send_message` method on the bot to send back a message to chat. we specify the `chat_id` to send the text to and `text` to send. <br />
 - There are other optional parameters we can pass to `send_message` as documented in the telegram bot API docs. <br />
 - The program will sleep for 10 seconds and the resume. To close the program, press CTRL-Z.
+
+🚨🚨 ### Please Note 🚨🚨
+On windows, a RuntimeError is raised when the program is closing. This is an internal issue with the default proactor event loop and can safely be ignored as of now.
